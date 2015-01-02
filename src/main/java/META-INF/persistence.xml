@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="hsqldb-ds">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- This is where we tell JPA/Hibernate about our @Entity objects -->
+        <class>com.curupira.model.User</class>
+        <class>com.curupira.model.Role</class>
+
+
+    </persistence-unit>
+
+
+</persistence>
