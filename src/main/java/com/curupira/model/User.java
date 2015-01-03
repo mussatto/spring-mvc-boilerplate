@@ -11,15 +11,15 @@ public class User implements CurupiraModel {
 
     private String name;
 
-    //TODO: encode password
     private String encodedPassword;
 
     private List<Role> roles;
 
-    public static User createUser(String email, String name){
+    public static User createUser(String email, String name, String password){
         User user = new User();
         user.setName(name);
         user.setEmail(email);
+        user.setEncodedPassword(User.encodePassword(password));
         return user;
     }
 
@@ -68,5 +68,11 @@ public class User implements CurupiraModel {
 
     public void setEncodedPassword(String encodedPassword) {
         this.encodedPassword = encodedPassword;
+    }
+
+    @Transient
+    public static String encodePassword(String password){
+        //TODO: encode password
+        return password;
     }
 }

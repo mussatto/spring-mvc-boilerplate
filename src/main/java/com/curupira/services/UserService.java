@@ -8,6 +8,8 @@ import com.curupira.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class UserService {
 
@@ -27,7 +29,7 @@ public class UserService {
     }
 
     public void createDefaultAdmin(){
-        User user = User.createUser("admin@curupira.com","Admin");
+        User user = User.createUser("admin@curupira.com",RoleName.ADMIN.toString(), "curupira");
 
         user = userDAO.saveOrUpdate(user);
 
@@ -36,6 +38,8 @@ public class UserService {
 
     public void addRoleToUser(User user, RoleName roleName){
         Role role = roleDAO.findByName(roleName.toString());
+        if(user.getRoles()==null)
+            user.setRoles(new ArrayList<Role>());
         user.getRoles().add(role);
         userDAO.saveOrUpdate(user);
 

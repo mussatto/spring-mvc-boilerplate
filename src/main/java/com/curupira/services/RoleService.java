@@ -17,10 +17,10 @@ public class RoleService {
         Role role=null;
         role = roleDAO.findByName(RoleName.ADMIN.toString());
         if(role==null){
-                role = Role.create("ADMIN");
-                roleDAO.saveOrUpdate(role);
-                Role role2 = Role.create("USER");
-                roleDAO.saveOrUpdate(role2);
+            role = Role.create("ADMIN");
+            roleDAO.saveOrUpdate(role);
+            Role role2 = Role.create("USER");
+            roleDAO.saveOrUpdate(role2);
         }
     }
 

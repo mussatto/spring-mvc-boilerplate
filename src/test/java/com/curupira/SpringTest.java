@@ -14,9 +14,7 @@ public abstract class SpringTest {
 
     public SpringTest(){
         applicationContext = new AnnotationConfigApplicationContext(ServiceConfig.class, PersistenceJPAConfig.class);
-        RoleService roleService = applicationContext.getBean(RoleService.class);
 
-        roleService.createDefaultRoles();
     }
 
     public ApplicationContext getApplicationContext(){

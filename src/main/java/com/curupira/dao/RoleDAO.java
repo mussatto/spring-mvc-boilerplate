@@ -4,6 +4,7 @@ import com.curupira.model.Role;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
@@ -44,10 +45,14 @@ public class RoleDAO{
     }
 
     public Role findByName(String roleName){
-        Query query = getEntityManager().createQuery("select role from Role role where role.roleName=?");
-        query.setParameter(1,roleName);
-        Role role = (Role) query.getSingleResult();
-
+        Role role=null;
+        try{
+            Query query = getEntityManager().createQuery("select role from Role role where role.roleName=?");
+            query.setParameter(1,roleName);
+            role = (Role) query.getSingleResult();
+        }catch(NoResultException exception){
+            return role;
+        }
         return role;
     }
 }
