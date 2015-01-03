@@ -4,8 +4,9 @@ import com.curupira.model.CurupiraModel;
 
 public interface CurupiraDAO<T extends CurupiraModel> {
 
-    public T save(T model);
-    public T update(T model);
+    public T saveOrUpdate(T model);
     public void delete(T model);
+    public T find(Long id);
+
 
 }
