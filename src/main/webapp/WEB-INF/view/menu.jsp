@@ -8,18 +8,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Curupira Technologies</a>
+            <a class="navbar-brand" href="home">Curupira Technologies</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="">Home</a>
+                    <a href="home">Home</a>
                 </li>
                 <li>
-                    <a href="">About</a>
+                    <a href="about">About</a>
                 </li>
                 <li>
-                    <a href="">Contacts</a>
+                    <a href="contact">Contacts</a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
