@@ -32,7 +32,6 @@ public class RoleDAO{
         else{
             return getEntityManager().merge(model);
         }
-
     }
 
     public void delete(Role model){

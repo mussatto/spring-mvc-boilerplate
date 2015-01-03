@@ -11,7 +11,17 @@ public class User implements CurupiraModel {
 
     private String name;
 
+    //TODO: encode password
+    private String encodedPassword;
+
     private List<Role> roles;
+
+    public static User createUser(String email, String name){
+        User user = new User();
+        user.setName(name);
+        user.setEmail(email);
+        return user;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -49,5 +59,14 @@ public class User implements CurupiraModel {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    @Column
+    public String getEncodedPassword() {
+        return encodedPassword;
+    }
+
+    public void setEncodedPassword(String encodedPassword) {
+        this.encodedPassword = encodedPassword;
     }
 }

@@ -12,11 +12,21 @@ public class UserDAO {
     private EntityManager em;
 
     public void setEntityManager(EntityManager em) {
-        this.setEntityManager(em);
+        this.em = em;
     }
 
     public EntityManager getEntityManager() {
         return em;
+    }
+
+    public User saveOrUpdate(User model){
+        if(model.getId()==null){
+            getEntityManager().persist(model);
+            return model;
+        }
+        else{
+            return getEntityManager().merge(model);
+        }
     }
 
 
