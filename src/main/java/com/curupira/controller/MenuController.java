@@ -41,5 +41,12 @@ public class MenuController {
         return "about";
     }
 
+    @RequestMapping(value="/denied")
+    public String denied(){
+        return "denied";
+    }
+
+
+
 
 }

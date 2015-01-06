@@ -21,6 +21,9 @@
                 <li>
                     <a href="contact">Contacts</a>
                 </li>
+                <li>
+                    <a href="social/facebook/signin">Facebook Login</a>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         Mais <span class="caret"></span>
