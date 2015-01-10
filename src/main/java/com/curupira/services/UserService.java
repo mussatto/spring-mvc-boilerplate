@@ -29,11 +29,14 @@ public class UserService {
     }
 
     public void createDefaultAdmin(){
-        User user = User.createUser("admin@curupira.com",RoleName.ADMIN.toString(), "curupira");
+        User user = findByUsername(RoleName.ADMIN.toString());
+        if(user==null){
+            user = User.createUser("admin@curupira.com",RoleName.ADMIN.toString(), "curupira");
 
-        user = userDAO.saveOrUpdate(user);
+            user = userDAO.saveOrUpdate(user);
 
-        addRoleToUser(user, RoleName.ADMIN);
+            addRoleToUser(user, RoleName.ADMIN);
+        }
     }
 
     public void addRoleToUser(User user, RoleName roleName){
