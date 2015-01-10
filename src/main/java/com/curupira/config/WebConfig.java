@@ -4,12 +4,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages="com.curupira")
-public class WebConfig {
+public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public InternalResourceViewResolver viewResolver() {
@@ -19,10 +21,10 @@ public class WebConfig {
         return resolver;
     }
 
-
-
-
-
-
+    @Override
+    public void addViewControllers(ViewControllerRegistry viewControllerRegistry){
+        super.addViewControllers(viewControllerRegistry);
+        viewControllerRegistry.addViewController("login/form").setViewName("login");
+    }
 
 }

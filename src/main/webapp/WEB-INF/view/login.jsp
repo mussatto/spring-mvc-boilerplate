@@ -25,6 +25,8 @@
 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Password" />
+
+                <input type="submit" value="Do Login"/>
             </div>
 
         </form:form>
