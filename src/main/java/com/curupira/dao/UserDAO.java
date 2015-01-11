@@ -46,5 +46,17 @@ public class UserDAO {
         return user;
     }
 
+    public User findByUsernameWithRoles(String username){
+        User user=null;
+        try{
+            Query query = getEntityManager().createQuery("select user from User user left join fetch user.roles where user.name=?");
+            query.setParameter(1,username);
+            user= (User) query.getSingleResult();
+        }catch(NoResultException exception){
+            return user;
+        }
+        return user;
+    }
+
 
 }
