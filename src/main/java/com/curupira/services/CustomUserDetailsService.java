@@ -25,8 +25,8 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("Username "+username+" not found");
         }
 
-        System.out.println("Role-------------------");
-        System.out.println(user.getEmail());
+        System.out.println("------------------------");
+        System.out.println("email:"+user.getEmail());
         for(Role role : user.getRoles()){
             System.out.println(role.getRoleName());
         }

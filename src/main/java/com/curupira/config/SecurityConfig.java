@@ -1,5 +1,6 @@
 package com.curupira.config;
 
+import com.curupira.model.RoleName;
 import com.curupira.services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -34,15 +35,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","/createDefault","/home","/login","/login/form**","/register","/logout").permitAll() // #4
-                .antMatchers("/admin","/admin/**").hasRole("ADMIN") // #6
-                .anyRequest().authenticated() // 7
+                .antMatchers("/","/createDefault","/home","/login","/login/form**","/register","/logout").permitAll()
+                .anyRequest().authenticated()
                 .and()
-                .formLogin()  // #8
-                .loginPage("/login/form") // #9
+                .formLogin()
+                .loginPage("/login/form")
                 .loginProcessingUrl("/login")
-                .failureUrl("/login/form?error")
-                .permitAll(); // #5
+                .failureUrl("/login/form?error=true")
+                .permitAll();
     }
 
 }

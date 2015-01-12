@@ -16,9 +16,10 @@ public class AdminController {
         this.userService=userService;
     }
 
-    @Secured("ROLE_ADMIN")
+    @Secured("ADMIN")
     @RequestMapping("/admin/index")
     public String index(){
+        System.out.println("ADMIN INDEX");
         return "admin/index";
     }
 

@@ -3,6 +3,7 @@ package com.curupira.config;
 import com.curupira.dao.RoleDAO;
 import com.curupira.dao.UserDAO;
 import com.curupira.services.CustomUserDetailsService;
+import com.curupira.services.InitializerService;
 import com.curupira.services.RoleService;
 import com.curupira.services.UserService;
 import org.springframework.context.annotation.Bean;
@@ -34,6 +35,11 @@ public class ServiceConfig {
     @Bean(name="customUserDetailsService")
     public CustomUserDetailsService getCustomUserDetailsService(){
         return new CustomUserDetailsService();
+    }
+
+    @Bean(name = "initializerService")
+    public InitializerService getInitializerService(){
+        return new InitializerService();
     }
 
 

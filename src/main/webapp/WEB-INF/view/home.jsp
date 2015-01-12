@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -16,6 +18,10 @@
 
     <div class="container theme-showcase" role="main">
         <div class="jumbotron">
+            <c:if test="${param.login}">
+                <p>Welcome!</p>
+            </c:if>
+
             <h1>Home</h1>
             <p>This is the home page</p>
 
