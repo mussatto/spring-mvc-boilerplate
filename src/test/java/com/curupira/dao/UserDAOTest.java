@@ -24,7 +24,6 @@ public class UserDAOTest extends SpringTest {
         roleService= getApplicationContext().getBean(RoleService.class);
 
         roleService.createDefaultRoles();
-        userService.createDefaultAdmin();
     }
 
     @Test

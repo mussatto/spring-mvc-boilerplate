@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -28,16 +29,19 @@ public class UserService {
         this.userDAO = userDAO;
     }
 
-    public void createDefaultAdmin(){
-        User user = findByUsername(RoleName.ADMIN.toString());
+    public void createUser(String email, String username, String password, List<RoleName> roles){
+        User user = findByUsername(username);
         if(user==null){
-            user = User.createUser("admin@curupira.com",RoleName.ADMIN.toString(), "curupira");
+            user = User.createUser(email, username, password);
 
             user = userDAO.saveOrUpdate(user);
-
-            addRoleToUser(user, RoleName.ADMIN);
+            for(RoleName roleName: roles){
+                addRoleToUser(user, roleName);
+            }
         }
     }
+
+
 
     public void addRoleToUser(User user, RoleName roleName){
         Role role = roleDAO.findByName(roleName.toString());

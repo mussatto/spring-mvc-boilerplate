@@ -16,8 +16,8 @@ public class RoleDAOTest extends SpringTest {
         RoleService roleService = getApplicationContext().getBean(RoleService.class);
         roleService.createDefaultRoles();
 
-        Role role = roleDAO.findByName("ADMIN");
+        Role role = roleDAO.findByName("curupira");
 
-        assertEquals("ADMIN", role.getRoleName());
+        assertEquals("curupira", role.getRoleName());
     }
 }
