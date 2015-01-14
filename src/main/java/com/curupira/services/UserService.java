@@ -56,6 +56,10 @@ public class UserService {
         return userDAO.findByUsernameWithRoles(username);
     }
 
+    public List<User> listAll(int page){
+        return userDAO.listAll(page);
+    }
+
 
 
 }
