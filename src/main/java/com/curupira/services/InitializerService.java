@@ -14,6 +14,9 @@ public class InitializerService implements InitializingBean {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RoleService roleService;
+
     public void setUserService(UserService userService){
         this.userService=userService;
     }
@@ -21,8 +24,11 @@ public class InitializerService implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
+
+        roleService.createDefaultRoles();
+
         //TODO: case environment dev / prod / uat
-        List<RoleName> roleList = new ArrayList<RoleName>();
+        List<RoleName> roleList = new ArrayList<>();
 
         roleList.add(RoleName.ADMIN);
 

@@ -37,5 +37,10 @@ public class ServiceConfig {
         return new CustomUserDetailsService();
     }
 
+    @Bean(name="initializerService")
+    public InitializerService getInitializerService(){
+        return new InitializerService();
+    }
+
 
 }

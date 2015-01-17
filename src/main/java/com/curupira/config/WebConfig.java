@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages="com.curupira")
+@ComponentScan(basePackages="com.curupira.controller")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
