@@ -75,4 +75,16 @@ public class User implements CurupiraModel {
         //TODO: encode password
         return password;
     }
+
+    @Transient
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", encodedPassword='" + encodedPassword + '\'' +
+                ", roles=" + roles +
+                '}';
+    }
 }
